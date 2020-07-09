@@ -65,7 +65,7 @@ public void drivingpracticeTest(double speedOne, double speedTwo, double speedTh
     this.SpeedOne = SpeedOne;
     this.SpeedTwo = SpeedTwo;
     this.SpeedThree = SpeedThree;
-    
+
 }
 public static Encoder getVictorOne(){
     return VictorEncodeOne;
@@ -89,9 +89,12 @@ public static void setPosition(double leftSet, double rightSet){ // Project for 
     double motorSpeedTwo;
     double motorSpeedThree;
 }
-
-
-
-
+@Override
+public void initDefaultCommand(){   
+}
+public staticer gt //What's happening here?
+    
+        setDefaultCommand(new DriveTrainC());
+    }
 
 }

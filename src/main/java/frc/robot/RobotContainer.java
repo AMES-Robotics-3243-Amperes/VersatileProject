@@ -35,7 +35,7 @@ public class RobotContainer {
   // Practice Robot/Real Robot Checkswitch
   public static boolean practiceR = true;
   //
-
+  // ------------------ Commands
   // ------------------ SUBSYSTEMS ----------------------------
   private static DrivetrainS m_DrivetrainS = new DrivetrainS();
   //----------------------------------------------------------

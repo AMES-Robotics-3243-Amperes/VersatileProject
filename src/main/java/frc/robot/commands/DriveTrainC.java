@@ -7,12 +7,18 @@
 
 package frc.robot.commands;
 
+import java.lang.module.ModuleDescriptor.Requires;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DrivetrainS;
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 public class DriveTrainC extends CommandBase {
   private final DrivetrainS m_drive;
+  public DriveTrainC(){
+    requires(Robot.m_DrivetrainSR);
+  }
   public DriveTrainC(DrivetrainS drive) {
     m_drive = drive;
   }
