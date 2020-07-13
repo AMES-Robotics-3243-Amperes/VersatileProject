@@ -16,12 +16,10 @@ import frc.robot.RobotContainer;
 
 public class DriveTrainC extends CommandBase {
   private final DrivetrainS m_drive;
-  public DriveTrainC(){
-    requires(Robot.m_DrivetrainSR);
-  }
-  public DriveTrainC(DrivetrainS drive) {
+  public DriveTrainC(DrivetrainS drive){
     m_drive = drive;
   }
+  
 
   // Called when the command is initially scheduled.
   @Override
@@ -31,6 +29,8 @@ public class DriveTrainC extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+
+    
   }
 
   // Called once the command ends or is interrupted.

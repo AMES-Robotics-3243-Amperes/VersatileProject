@@ -16,14 +16,16 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final boolean TEST_VERSION = false;
+    public static final boolean TEST_VERSION = false; // Used for enabling or disabling certain SmartDasboard outputs
 
-    public static final class DriveConstants{
+    public static final class DriveConstants{ // Driving stuff
         public static final int kPracOneID = 1;
         public static final int kPracTwoID = 2;
         public static final int kPracThreeID = 3;
 
-
+        public static final int kPracLEncodeOne = 4;
+        public static final int kPracLEncodeTwo = 5;
+        public static final int kPracLEncodeThree = 6;
     }
 
     public static final class IndexerConstants{
