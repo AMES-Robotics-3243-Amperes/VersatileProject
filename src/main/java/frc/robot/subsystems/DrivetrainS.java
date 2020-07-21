@@ -64,10 +64,9 @@ public class DrivetrainS extends SubsystemBase{
         // Other motor layouts will be incorporated here in the coming days. 
     }
 }
-public void setMotorSpeed(double speed){
-    motorOne.set(speed);
-    motorTwo.set(speed);
-    motorThree.set(speed);
+
+public void practiceDriving(double speed){
+    m_Practice.
 }
 
 //public static Encoder getVictorOne(){
@@ -104,6 +103,8 @@ public void setMotorSpeed(double speed){
     
 
 //}
+
+
 
 @Override
 public void periodic(){

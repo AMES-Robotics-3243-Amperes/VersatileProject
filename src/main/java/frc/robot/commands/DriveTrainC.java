@@ -29,8 +29,8 @@ public class DriveTrainC extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    
+    DrivetrainS.tankDrive()
+    RobotContainer.configureJoyst();
   }
 
   // Called once the command ends or is interrupted.

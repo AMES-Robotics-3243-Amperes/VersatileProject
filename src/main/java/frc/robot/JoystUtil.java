@@ -9,33 +9,20 @@ package frc.robot;
 // Library imports
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import static java.lang.System.out;
+import static java.lang.System.out; // Don't have to keep using Math.(command name)
 import static java.lang.Math.*;
 import frc.robot.Constants;
 /**
  * Add your docs here.
  */
 public class JoystUtil {
-    /*
-    * Class below helps zero out minor movements falsely registered by the joysticks. 
-    * It keeps you moving straight, and prevents the robot from moving while in place.
-    * steer1 = joystick One / steer2 = joystick Two
-    */
-   /* ------- This was, for the most part, imported from last year's code. We just need something more simple for now.
-    public static double matchZone(double steer1, double steer2){ 
-        double matchZoneRadius = 0.09; //Still don't entirely know what this does.
+    
+  public static double matchZone(double steer){
+    double matchZoneRadius = 0.09; // When joysticks are within 0.09 of eachother
 
-        double avgSteer = (steer1 + steer2) / 2.0;
-        if(Constants.TEST_VERSION){
-            SmartDashboard.putNumber("avgSteer", avgSteer);
-        }
-        double r = matchZoneRadius / 2.0;
-        //Defining upper and lower boundaries. Sort of don't know how this works
-        double lowerBound = (avgSteer - r <= 0) ? -1 : 0;
-        double upperBound = (avgSteer + r >= 0) ? 1 : 0;
-
-    }
-    */
+    double result = signum(steer) * max(0, abs(steer)); // Not sure if this will work
+    return result;
+  }
     public static double lerp(double a, double b, double f) { //Linear interpolation: midpoint essentially
         return a + f * (b - a);
       }
