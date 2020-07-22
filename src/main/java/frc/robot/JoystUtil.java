@@ -15,8 +15,11 @@ import frc.robot.Constants;
 /**
  * Add your docs here.
  */
+
 public class JoystUtil {
-    
+  public static final double JOY_DEADZONE = 0.05;
+  public final Joystick LEFT_JOY = new Joystick(Constants.joystickConstants.DRIVER_JOY_LEFT); // Values for first joy
+  public final Joystick RIGHT_JOY = new Joystick(Constants.joystickConstants.DRIVER_JOY_RIGHT); // values for second joy
   public static double matchZone(double steer){
     double matchZoneRadius = 0.09; // When joysticks are within 0.09 of eachother
 
@@ -30,6 +33,15 @@ public class JoystUtil {
         double deadZoneRadius = 0.09;
         // 0.09 for the joystick is considered too insignificant to be measured.
         return signum(dead) * max(0, abs(dead * (1 + deadZoneRadius)) - deadZoneRadius);
+    }
+
+    public double basicxAxis(){
+      double raw = LEFT_JOY.getX();
+      return Math.abs(raw) < JOY_DEADZONE ? 0.0 : raw;
+    }
+    public double basicyAxis(){
+      double raw = LEFT_JOY.getY();
+      return Math.abs(raw) < JOY_DEADZONE ? 0.0 : raw;
     }
 
     public static double scaleZone (double scale){

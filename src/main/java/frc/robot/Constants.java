@@ -28,8 +28,9 @@ public final class Constants {
         public static final int kPracLEncodeThree = 6;
     }
 
-    public static final class IndexerConstants{
-
+    public static final class joystickConstants{
+        public static final int DRIVER_JOY_LEFT = 0;
+        public static final int DRIVER_JOY_RIGHT = 1;
     }
 
     

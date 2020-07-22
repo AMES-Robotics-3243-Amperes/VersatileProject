@@ -10,7 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive; // Clearly I don't know what the hell I am doing
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 //
@@ -56,6 +56,8 @@ public class DrivetrainS extends SubsystemBase{
 
         // public DifferentialDrive driving = new DifferentialDrive(motorOne, motorTwo); - to be worked on later
         m_Practice = new SpeedControllerGroup(motorOne, motorTwo, motorThree);
+
+        
        // VictorEncodeOne.reset(); //Resets distance recorded on the encoder
        // VictorEncodeTwo.reset();
        // VictorEncodeThree.reset();
@@ -64,10 +66,10 @@ public class DrivetrainS extends SubsystemBase{
         // Other motor layouts will be incorporated here in the coming days. 
     }
 }
-
-public void practiceDriving(double speed){
-    m_Practice.
+public static void setRaw(double leftValue, double rightValue){
+    m_Practice.set(leftValue);
 }
+
 
 //public static Encoder getVictorOne(){
    // return VictorEncodeOne;
