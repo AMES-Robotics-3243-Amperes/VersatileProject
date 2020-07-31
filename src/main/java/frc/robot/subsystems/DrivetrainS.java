@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.*;
+import frc.robot.commands.DriveTrainC;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive; // Clearly I don't know what the hell I am doing
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -58,9 +59,7 @@ public class DrivetrainS extends SubsystemBase{
         m_Practice = new SpeedControllerGroup(motorOne, motorTwo, motorThree);
 
         
-       // VictorEncodeOne.reset(); //Resets distance recorded on the encoder
-       // VictorEncodeTwo.reset();
-       // VictorEncodeThree.reset();
+       
 
     } else {
         // Other motor layouts will be incorporated here in the coming days. 
@@ -71,40 +70,6 @@ public static void setRaw(double leftValue, double rightValue){
 }
 
 
-//public static Encoder getVictorOne(){
-   // return VictorEncodeOne;
-//}
-//public static Encoder getVictorTwo(){
- //   return VictorEncodeTwo;
-//}
-//public static Encoder getVictorThree(){
- //   return VictorEncodeThree;
-//}
-
-
-
-
-//public static void resetEncode(){
-   // if(VictorEncodeOne != null && VictorEncodeTwo != null && VictorEncodeThree != null){
-  //      VictorEncodeOne.reset();
-   //     VictorEncodeTwo.reset();
-   //     VictorEncodeThree.reset();
-   // }
-//}
-//public static void setPosition(double leftSet, double rightSet){ // Project for later
- //   double motorSpeedOne;
-  //  double motorSpeedTwo;
-  //  double motorSpeedThree;
-  //  if(VictorEncodeOne != null && VictorEncodeTwo != null && VictorEncodeThree != null){
-        // more to be added
-  //  } else {
-   //     motorSpeedOne = 0;
-  //      motorSpeedTwo = 0;
-  //      motorSpeedThree = 0;
-   // }
-    
-
-//}
 
 
 
@@ -115,6 +80,9 @@ public void periodic(){
     SmartDashboard.putNumber("VictorTwo", SpeedTwo);
     SmartDashboard.putNumber("VictorThree", SpeedThree);
 }
+public void schedule() {
+}
+
 
 
 }

@@ -11,11 +11,13 @@ import java.lang.module.ModuleDescriptor.Requires;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DrivetrainS;
+import frc.robot.JoystUtil;
 import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 public class DriveTrainC extends CommandBase {
   private final DrivetrainS m_drive;
+
   public DriveTrainC(DrivetrainS drive){
     m_drive = drive;
   }
@@ -24,6 +26,7 @@ public class DriveTrainC extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -31,6 +34,7 @@ public class DriveTrainC extends CommandBase {
   public void execute() {
     Robot.m_DrivetrainSR.setRaw(Robot.m_JoystUtil.basicxAxis(), Robot.m_JoystUtil.basicyAxis());
     RobotContainer.configureJoyst(); // To be worked on later ...
+    Robot.m_DrivetrainSR.setRaw(Robot.m_JoystUtil.basicxAxis(), Robot.m_JoystUtil.basicyAxis());
 
   }
 

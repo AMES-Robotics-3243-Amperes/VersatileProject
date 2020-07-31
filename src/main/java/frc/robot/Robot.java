@@ -10,9 +10,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.ScheduleCommand;
 // ----------------------------------------------------------
 import frc.robot.subsystems.DrivetrainS;
 import frc.robot.JoystUtil;
+import frc.robot.RobotContainer;
 
 
 
@@ -39,6 +41,7 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer(); // Instances
     m_DrivetrainSR = new DrivetrainS(); 
     m_JoystUtil = new JoystUtil();
+
   }
 
   /**
@@ -79,6 +82,8 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
+    ///////// SCHEDULERS //////
+    m_DrivetrainSR.schedule();
   }
 
   /**
