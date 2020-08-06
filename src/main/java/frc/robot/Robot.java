@@ -7,7 +7,9 @@
 
 package frc.robot;
 // Standard Library Imports ---------------------------------
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.ScheduleCommand;
@@ -26,10 +28,11 @@ import frc.robot.RobotContainer;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  public static DrivetrainS m_DrivetrainSR;
+  public static DrivetrainS m_DrivetrainS;
   public static JoystUtil m_JoystUtil;
   private RobotContainer m_robotContainer;
-
+  private Joystick joy1 = new Joystick(0);
+  private double startTime;
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -39,8 +42,7 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer(); // Instances
-    m_DrivetrainSR = new DrivetrainS(); 
-    m_JoystUtil = new JoystUtil();
+    m_DrivetrainS = new DrivetrainS();
 
   }
 
@@ -77,13 +79,14 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+    startTime = Timer.getFPGATimestamp();
 
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
     ///////// SCHEDULERS //////
-    m_DrivetrainSR.schedule();
+    m_DrivetrainS.schedule();
   }
 
   /**
@@ -91,6 +94,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
+    double time = Timer.getFPGATimestamp(); // Retrieves the time that has been elapsed
+    if(time - startTime < 3) {
+      DrivetrainS.setRaw(0.6, 0);
+    } else {
+      DrivetrainS.setRaw(0, 0);
+    }
   }
 
   @Override
@@ -109,6 +118,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    double speed = -joy1.getRawAxis(Constants.joystickConstants.DRIVER_JOY_LEFT) * 0.6;
+    double turn = joy1.getRawAxis(Constants.joystickConstants.DRIVER_JOY_RIGHT) * 0.6;
+    DrivetrainS.setRaw(speed, 0);
   }
 
   @Override

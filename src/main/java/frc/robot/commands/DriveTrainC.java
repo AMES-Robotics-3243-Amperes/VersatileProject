@@ -32,9 +32,9 @@ public class DriveTrainC extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.m_DrivetrainSR.setRaw(Robot.m_JoystUtil.basicxAxis(), Robot.m_JoystUtil.basicyAxis());
+    Robot.m_DrivetrainS.setRaw(Robot.m_JoystUtil.basicxAxis(), Robot.m_JoystUtil.basicyAxis());
     RobotContainer.configureJoyst(); // To be worked on later ...
-    Robot.m_DrivetrainSR.setRaw(Robot.m_JoystUtil.basicxAxis(), Robot.m_JoystUtil.basicyAxis());
+    Robot.m_DrivetrainS.setRaw(Robot.m_JoystUtil.basicxAxis(), Robot.m_JoystUtil.basicyAxis());
 
   }
 
