@@ -37,7 +37,7 @@ public class RobotContainer {
   // ------------------ SUBSYSTEMS ----------------------------
   private static DrivetrainS m_DrivetrainS = new DrivetrainS();
   // ------------------ COMMANDS ------------------------------
-  private static DriveTrainC m_DriveTrainC = new DriveTrainC(m_DrivetrainS);
+  private final static DriveTrainC m_DriveTrainC = new DriveTrainC(m_DrivetrainS);
   //-----------------------------------------------------------
   // Variables and object declarations
   public static Joystick driver = new Joystick(0); // Joysticks

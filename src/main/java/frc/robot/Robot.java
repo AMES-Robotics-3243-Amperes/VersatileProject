@@ -27,12 +27,16 @@ import frc.robot.RobotContainer;
  * project.
  */
 public class Robot extends TimedRobot {
+  // Commands //
   private Command m_autonomousCommand;
+  // Subsystems //
   public static DrivetrainS m_DrivetrainS;
+  // Utils and containers //
   public static JoystUtil m_JoystUtil;
   private RobotContainer m_robotContainer;
   private Joystick joy1 = new Joystick(0);
   private double startTime;
+  ///////////////////////////////////////////////
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
